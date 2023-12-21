@@ -144,7 +144,8 @@ LIST_IT_FROM $0400
 
 This way you don't have to care about pointers or anything: just set where you
 want to start iterating your list, and call `List::get` until `y` has an `$FF`
-value.
+value. Note though that, because of the implicit pointer arithmetic, the carry
+flag and others might have been updated after you have called this function.
 
 ### Setting values without growing the list
 
@@ -190,11 +191,15 @@ LIST_IT_FROM $0400
   ;; move on...
 ```
 
+Finally, keep in mind that this function, besides updating the `a` and the `y`
+registers, will also update the carry flag.
+
 ### Putting it all together
 
 You can check out an example in the [examples/mul.s](./examples/mul.s) file.
 Otherwise you can also see it being used in real life on my solution for [day 4
-of Advent of Code](https://github.com/mssola/aoc2023.nes/blob/main/src/4.s).
+of Advent of Code
+2023](https://github.com/mssola/aoc2023.nes/blob/main/src/4.s).
 
 ## License
 
