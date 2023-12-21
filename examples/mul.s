@@ -60,7 +60,7 @@ main:
     ;; Pull the value that corresponds to the low byte and set it. After doing
     ;; that, though, did we get a $FF value? If so then it means that we are
     ;; done with it, otherwise proceed to grab the high byte stored on the `x`
-    ;; registerm set it with `List::set` and loop again.
+    ;; register, set it with `List::set` and loop again.
     pla
     jsr List::set
     cpy #$FF
