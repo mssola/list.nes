@@ -13,6 +13,13 @@ it added a bunch of code that was unrelated to the challenge itself. Hence, I
 extracted the logic into this library and tuned things down from the lessons I
 learnt along the way.
 
+Moreover, you could also use this library to keep track of small lists, but you
+have to keep in mind that pointer arithmetics and bound checks can hinder
+performance. In other words, if you have a small list (less or equal than what
+it can be addressed with an 8-bit index), then it's not worth the trouble: there
+are other more performant ways to achieve the same thing. In short, this library
+is useful only when indexing this list requires 16-bit arithmetic.
+
 It's all pretty simple but being assembly code it comes with some gotchas that
 you need to be aware of.
 

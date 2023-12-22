@@ -52,7 +52,7 @@
 ;; List provides the scope for the variables and subroutines that have been
 ;; defined in order to maintain and manipulate big lists on the NES.
 ;;
-;; This library can also work for smaller list but there are other more
+;; This library can also work for smaller lists but there are other more
 ;; performant ways to achieve the same thing. Thus, use this library only if you
 ;; need to have a list that may store more than 255 bytes and indexing in the
 ;; usual ways might be a problem otherwise.
