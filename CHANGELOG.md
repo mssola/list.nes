@@ -1,4 +1,4 @@
-## 0.1
+## v1.0
 
 Initial version with a `list.s` file which implements the `List` scope. This
 scope defines two 16-bit pointers from which you can manipulate a list, but they
