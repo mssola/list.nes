@@ -16,8 +16,6 @@
 ;; You should have received a copy of the GNU Lesser General Public License
 ;; along with this library.  If not, see <https://www.gnu.org/licenses/>.
 
-.p02
-
 ;; Initialize a new list which starts at the given 16-bit address.
 .macro LIST_INIT address
     lda #.lobyte(address)
