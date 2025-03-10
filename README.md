@@ -32,9 +32,17 @@ ready to be used.
 As for the memory mapping, please do note that this library needs 4 bytes in
 order to store two 16-bit pointers that keep track of the list. By default these
 4 bytes are located at \$60-\$63. If that clashes with something from your code,
-simply change these variables, named `List::ptr` and `List::last`. Each of these
-pointers are 16-bit long (hence 2 bytes long), and they don't need to be in
-continguous memory locations.
+you can provide alternative locations by defining `LIST_PTR_ADDRESS` and
+`LIST_LAST_ADDRESS`. So:
+
+```assembly
+;; Let's say that you want one pointer in $80-$81, and the other at $90-$91.
+LIST_PTR_ADDRESS = $80
+LIST_LAST_ADDRESS = $90
+
+;; And then include the library.
+.include "<vendor directory>/list.s"
+```
 
 ### Creating a list
 

@@ -58,13 +58,21 @@
 ;; For more information on the usage and the API check the documentation
 ;; (README.md file on the https://github.com/mssola/list.nes repository).
 .scope List
-    ;; NOTE (important): this library needs 4 bytes ($60-$63) to store
-    ;; information of this list. These are two 16-bit pointers which are used
-    ;; for the subroutines being defined here. If you have a clash with these
-    ;; memory addresses, do feel free to change them, but remember that the code
-    ;; assumes that both pointers are 16-bit (they don't need to be contiguous).
-    ptr  = $60
-    last = $62
+    ;; NOTE (important): this library needs 4 bytes to store information of this
+    ;; list. These are two 16-bit pointers which are used for the subroutines
+    ;; being defined here. The exact location of these pointers are set to
+    ;; $60-$63 by default, but they can be changed by providing definitions for
+    ;; `LIST_PTR_ADDRESS` and `LIST_LAST_ADDRESS`.
+    .ifdef LIST_PTR_ADDRESS
+        ptr = LIST_PTR_ADDRESS
+    .else
+        ptr = $60
+    .endif
+    .ifdef LIST_LAST_ADDRESS
+        last = LIST_LAST_ADDRESS
+    .else
+        last = $62
+    .endif
 
     ;; Set the value of `a` into the list and advance one position without
     ;; growing the list.
